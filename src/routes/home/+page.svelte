@@ -7,15 +7,13 @@
 
 <svelte:head>
 	<!-- Essential Open Graph tags -->
-	<meta property="og:title" content="title" />
-	<meta property="og:description" content="A brief description of the content" />
-	<meta property="og:image" content="URL_to_an_image_preview.jpg" />
-	<meta property="og:url" content="URL_of_the_shared_page" />
+	<meta property="og:title" content="Undead on time" />
+	<meta property="og:description" content="Plan and book your online game board sessions" />
+	<meta property="og:image" content="/static/pawn.png" />
 
 	<!-- Optional tags -->
 	<meta property="og:type" content="website" />
 	<!-- Can be 'website', 'article', 'video', etc. -->
-	<meta property="og:site_name" content="Your Website Name" />
 </svelte:head>
 
 <div class="mx-2 flex flex-col items-center">
