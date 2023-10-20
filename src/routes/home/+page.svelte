@@ -7,7 +7,7 @@
 
 <svelte:head>
 	<!-- Essential Open Graph tags -->
-	<meta property="og:title" content={gameTitle} />
+	<meta property="og:title" content="title" />
 	<meta property="og:description" content="A brief description of the content" />
 	<meta property="og:image" content="URL_to_an_image_preview.jpg" />
 	<meta property="og:url" content="URL_of_the_shared_page" />
