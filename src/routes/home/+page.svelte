@@ -5,6 +5,23 @@
 	export let data: PageData;
 </script>
 
+<head>
+	<!-- ... other head elements ... -->
+
+	<!-- Essential Open Graph tags -->
+	<meta property="og:title" content="Title of your game or page" />
+	<meta property="og:description" content="A brief description of the content" />
+	<meta property="og:image" content="URL_to_an_image_preview.jpg" />
+	<meta property="og:url" content="URL_of_the_shared_page" />
+
+	<!-- Optional tags -->
+	<meta property="og:type" content="website" />
+	<!-- Can be 'website', 'article', 'video', etc. -->
+	<meta property="og:site_name" content="Your Website Name" />
+
+	<!-- ... rest of your head content ... -->
+</head>
+
 <div class="mx-2 flex flex-col items-center">
 	<h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center my-6">
 		UNDEAD ON TIME

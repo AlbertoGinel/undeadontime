@@ -17,7 +17,6 @@ export const load: PageServerLoad = async () => {
       }
     });
 
-    console.log('Profiles logged in the last 7 days:', profilesWeek);
   } catch (error) {
     console.error('Error fetching profiles from the last 7 days:', error);
     throw error;
@@ -25,7 +24,6 @@ export const load: PageServerLoad = async () => {
 
   try {
     profilesTotal = await prisma.profiles.count();
-    console.log('Total profiles:', profilesTotal);
   } catch (error) {
     console.error('Error fetching total profiles count:', error);
     throw error;
