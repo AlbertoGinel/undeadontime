@@ -37,6 +37,7 @@
 
 	{#if data.props.game?.game_image}
 		<meta property="og:image" content={data.props.game.game_image} />
+		<meta property="og:image:width" content="1200" />
 	{/if}
 
 	<meta property="og:type" content="website" />
