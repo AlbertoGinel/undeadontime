@@ -26,6 +26,23 @@
 	}
 </script>
 
+<svelte:head>
+	{#if data.props.game?.session_name}
+		<meta property="og:title" content={data.props.game.session_name} />
+	{/if}
+
+	{#if data.props.game?.game_name}
+		<meta property="og:description" content={data.props.game.game_name} />
+	{/if}
+
+	{#if data.props.game?.game_image}
+		<meta property="og:image" content={data.props.game.game_image} />
+	{/if}
+
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="Undead on time" />
+</svelte:head>
+
 {#if data.props.error}
 	<p>{data.props.error}</p>
 {:else if data.props.game}
