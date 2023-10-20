@@ -9,7 +9,10 @@
 	<!-- Essential Open Graph tags -->
 	<meta property="og:title" content="Undead on time" />
 	<meta property="og:description" content="Plan and book your online game board sessions" />
-	<meta property="og:image" content="/static/pawn.png" />
+	<meta
+		property="og:image"
+		content="https://hlkxosxqhseheconlqdl.supabase.co/storage/v1/object/public/Main_bucket/images/pawn.png"
+	/>
 
 	<!-- Optional tags -->
 	<meta property="og:type" content="website" />
