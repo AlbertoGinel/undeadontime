@@ -35,12 +35,19 @@
 		<meta property="og:description" content={data.props.game.game_name} />
 	{/if}
 
-	{#if data.props.game?.game_image}
-		<meta property="og:image" content={data.props.game.game_image} />
-		<meta property="og:image:width" content="1200" />
+	{#if data.props.game?.game_name}
+		<meta
+			property="og:description"
+			content={`(${daysUntil(DateTime.fromJSDate(data.props.game?.game_time))} days left)`}
+		/>
 	{/if}
 
-	<meta property="og:type" content="website" />
+	{#if data.props.game?.game_image}
+		<meta property="og:image" content={data.props.game.game_image} />
+		<meta property="og:image:height" content="800" />
+	{/if}
+
+	<meta property="og:type" content="article" />
 	<meta property="og:site_name" content="Undead on time" />
 </svelte:head>
 
