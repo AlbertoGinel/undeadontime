@@ -4,6 +4,7 @@
 	import { page } from '$app/stores';
 	import { enhance } from '$app/forms';
 	import { copyText } from 'svelte-copy';
+	import CopyDTag from '../../../components/copyDTag.svelte';
 
 	export let data: PageData;
 
@@ -31,11 +32,7 @@
 		<meta property="og:title" content={data.props.game.session_name} />
 	{/if}
 
-	{#if data.props.game?.game_name}
-		<meta property="og:description" content={data.props.game.game_name} />
-	{/if}
-
-	{#if data.props.game?.game_name}
+	{#if data.props.game?.game_time}
 		<meta
 			property="og:description"
 			content={`(${daysUntil(DateTime.fromJSDate(data.props.game?.game_time))} days left)`}
@@ -71,10 +68,10 @@
 			</div>
 
 			<!-- Data -->
-			<div class="">
-				<h2 class="text-3xl my-4 ml-4">{data.props.game?.game_name}</h2>
+			<div class="m-10">
+				<h2 class="text-3xl my-4 ml-4 text-center">{data.props.game?.game_name}</h2>
 
-				<div class="flex justify-between mt-4">
+				<div class="flex justify-between mt-4 mx-10">
 					<div class="flex flex-col items-center">
 						<div class="flex justify-between items-center">
 							<svg
@@ -144,29 +141,10 @@
 
 				{#each data.props.game?.owned_users as owner, index}
 					{#if owner.discord_tag}
-						<div class="flex items-center">
+						<div class="flex items-center ml-5">
 							<span class="mr-2">{owner.discord_tag}</span>
 
-							<div
-								class="btn relative p-1 w-6 h-6 bg-transparent rounded transition duration-150 ease-in-out"
-								on:keydown
-								on:click={() => owner.discord_tag && copyText(owner.discord_tag)}
-							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke-width="1.5"
-									stroke="currentColor"
-									class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z"
-									/>
-								</svg>
-							</div>
+							<CopyDTag discord_tag={owner.discord_tag} />
 						</div>
 					{:else}
 						<p>owner without discord_tag</p>
@@ -177,28 +155,11 @@
 
 				{#each data.props.game?.booked_users as player}
 					{#if player.profile.discord_tag}
-						<div class="flex items-center py-3">
+						<div class="flex items-center ml-5">
 							<span>{player.profile.discord_tag}</span>
-							<div
-								class="btn mx-3 relative p-1 w-6 h-6 bg-transparent rounded transition duration-150 ease-in-out"
-								on:keydown
-								on:click={() => player.profile.discord_tag && copyText(player.profile.discord_tag)}
-							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke-width="1.5"
-									stroke="currentColor"
-									class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z"
-									/>
-								</svg>
-							</div>
+
+							<CopyDTag discord_tag={player.profile.discord_tag} />
+
 							<div class="flex flex-col items-center">
 								<span class="text-xs"
 									>{DateTime.fromJSDate(player.created_at).toFormat('HH:mm')}</span

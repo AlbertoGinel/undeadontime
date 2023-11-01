@@ -49,7 +49,7 @@
 	<slot />
 {:else}
 	<div class="navbar bg-base-100 fixed top-0 w-full z-10">
-		<div class="navbar-start">
+		<div class="w-1/2 justify-center">
 			<div class="dropdown">
 				<label tabindex="0" class="btn btn-ghost lg:hidden">
 					<svg
@@ -94,7 +94,7 @@
 				{/if}
 			</ul>
 		</div>
-		<div class="navbar-end">
+		<div class="w-1/2 justify-center">
 			{#if session}
 				{#if profileName?.discord_tag}
 					<p>{profileName?.discord_tag}</p>

@@ -70,7 +70,7 @@
 				alt="online game"
 				class="max-w-xl rounded-lg shadow-2xl order-3 sm:order-1 w-full sm:w-1/2"
 			/>
-			<div class="order-2 sm:order-3 w-full sm:w-1/2 text-center mx-10">
+			<div class="order-2 sm:order-3 w-full sm:w-1/2 text-center mx-10 my-5">
 				<h1 class="text-3xl font-bold">Let's plan ahead with Undead on Time!</h1>
 				<p class="py-6">
 					I created this simple page to allow us to propose dates for playing. You can log in with

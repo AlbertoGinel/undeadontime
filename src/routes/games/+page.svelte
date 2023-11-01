@@ -19,6 +19,17 @@
 
 		return then.diff(now, 'days').days.toFixed(0); // rounds to the nearest whole number
 	}
+
+	let filteredAndSortedGames = data.games
+		.filter((game) => {
+			const gameTime = DateTime.fromJSDate(game.game_time);
+			return gameTime > DateTime.now();
+		})
+		.sort((gameA, gameB) => {
+			const timeA = DateTime.fromJSDate(gameA.game_time).valueOf();
+			const timeB = DateTime.fromJSDate(gameB.game_time).valueOf();
+			return timeA - timeB;
+		});
 </script>
 
 {#if session}
@@ -27,13 +38,13 @@
 	</div>
 {/if}
 
-{#if data.games.length < 1}
+{#if filteredAndSortedGames.length < 1}
 	<div class="flex flex-col items-center justify-center">
 		<h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center my-6">No Games</h1>
 	</div>
 {:else}
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 col-gap-20 mx-4">
-		{#each data.games as game}
+		{#each filteredAndSortedGames as game}
 			<a
 				href={`games/${game.id}`}
 				class="card bg-base-300 shadow-xl transform transition duration-300 hover:scale-105"
